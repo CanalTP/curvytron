@@ -10,7 +10,7 @@
  * @param {Chat} chat
  * @param {Notifier} notifier
  */
-function RoomController($scope, $routeParams, $location, client, repository, profile, chat, notifier)
+function RoomController($scope, $routeParams, $location, client, repository, profile, chat, notifier, playerNameGenerator)
 {
     AbstractController.call(this, $scope);
 
@@ -80,8 +80,9 @@ function RoomController($scope, $routeParams, $location, client, repository, pro
     gamepadListener.start();
 
     this.joinRoom();
-    this.addPlayer('player_1', '#00FF00');
-    this.addPlayer('player_2', '#FF0000');
+
+    this.addPlayer(playerNameGenerator.getName(), '#00FF00');
+    this.addPlayer(playerNameGenerator.getName(), '#FF0000');
     this.launch();
 }
 

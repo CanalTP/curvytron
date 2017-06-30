@@ -4,6 +4,7 @@ var curvytronApp = angular.module('curvytronApp', ['ngRoute', 'ngCookies', 'colo
 curvytronApp.service('SocketClient', SocketClient);
 curvytronApp.service('Profile', ['$rootScope', Profile]);
 curvytronApp.service('SoundManager', ['Profile', SoundManager]);
+curvytronApp.service('PlayerNameGenerator', PlayerNameGenerator);
 curvytronApp.service('ActivityWatcher', ['SocketClient', ActivityWatcher]);
 curvytronApp.service('RoomRepository', ['SocketClient', RoomRepository]);
 curvytronApp.service('GameRepository', ['SocketClient', 'RoomRepository', 'SoundManager', GameRepository]);
@@ -23,7 +24,7 @@ curvytronApp.controller(
 );
 curvytronApp.controller(
     'RoomController',
-    ['$scope', '$routeParams', '$location', 'SocketClient', 'RoomRepository', 'Profile', 'Chat', 'Notifier', RoomController]
+    ['$scope', '$routeParams', '$location', 'SocketClient', 'RoomRepository', 'Profile', 'Chat', 'Notifier', 'PlayerNameGenerator', RoomController]
 );
 curvytronApp.controller(
     'RoomConfigController',
