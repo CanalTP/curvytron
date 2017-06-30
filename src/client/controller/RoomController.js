@@ -80,7 +80,7 @@ function RoomController($scope, $routeParams, $location, client, repository, pro
     gamepadListener.start();
 
     this.joinRoom();
-    this.addPlayer('player_1', '#0000FF');
+    this.addPlayer('player_1', '#00FF00');
     this.addPlayer('player_2', '#FF0000');
     this.launch();
 }
