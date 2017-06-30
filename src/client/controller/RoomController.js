@@ -82,7 +82,7 @@ function RoomController($scope, $routeParams, $location, client, repository, pro
     this.joinRoom();
     this.addPlayer('player_1', '#00FF00');
     this.addPlayer('player_2', '#0000FF');
-    this.launch()
+    this.launch();
 }
 
 RoomController.prototype = Object.create(AbstractController.prototype);

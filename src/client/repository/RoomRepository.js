@@ -442,8 +442,8 @@ RoomRepository.prototype.onJoinRoom = function(e)
             data.player.ready
         );
 
-    if (data.player.name == "player_2") {
-        player.setCustomTouch(65, 'a', 68, 'b');
+    if (data.player.name === 'player_2') {
+        player.setCustomTouch(65, 'a', 66, 'b');
     }
 
 
