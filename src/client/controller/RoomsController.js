@@ -115,7 +115,6 @@ RoomsController.prototype.quickPlay = function()
     if (room) {
         this.joinRoom(room);
     } else {
-        this.$scope.roomName = 'ARCADE';
         this.createRoom();
     }
 };
