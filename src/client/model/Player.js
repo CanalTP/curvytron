@@ -88,9 +88,6 @@ Player.prototype.setTouch = function()
  */
 Player.prototype.setCustomTouch = function(leftCode, leftCharacter, rightCode, rightCharacter)
 {
-    console.debug(this.controls);
-
-
     this.controls = [
         new PlayerControl(leftCode, leftCharacter),
         new PlayerControl(rightCode, rightCharacter)

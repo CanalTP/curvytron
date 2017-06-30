@@ -80,8 +80,8 @@ function RoomController($scope, $routeParams, $location, client, repository, pro
     gamepadListener.start();
 
     this.joinRoom();
-    this.addPlayer('player_1', '#00FF00');
-    this.addPlayer('player_2', '#0000FF');
+    this.addPlayer('player_1', '#0000FF');
+    this.addPlayer('player_2', '#FF0000');
     this.launch();
 }
 
@@ -390,7 +390,6 @@ RoomController.prototype.setTouch = function()
     var players = this.room.getLocalPlayers();
 
     for (var i = players.items.length - 1; i >= 0; i--) {
-        console.log(players.items[i]);
         players.items[i].setTouch();
     }
 };
