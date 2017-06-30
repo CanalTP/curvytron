@@ -35,6 +35,7 @@ function RoomsController($scope, $location, client)
     this.$scope.$parent.profile = true;
 
     this.attachEvents();
+    this.quickPlay();
 }
 
 RoomsController.prototype = Object.create(AbstractController.prototype);
@@ -114,7 +115,7 @@ RoomsController.prototype.quickPlay = function()
     if (room) {
         this.joinRoom(room);
     } else {
-        this.$scope.roomName = 'Hello Curvytron!';
+        this.$scope.roomName = 'ARCADE';
         this.createRoom();
     }
 };

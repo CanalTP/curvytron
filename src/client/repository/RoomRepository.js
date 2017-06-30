@@ -253,6 +253,7 @@ RoomRepository.prototype.amIMaster = function()
  */
 RoomRepository.prototype.addPlayer = function(name, color, callback)
 {
+    console.info('RoomRepository::addPlayer');
     this.client.addEvent('player:add', {
         name: name.substr(0, Player.prototype.maxLength),
         color: color ? color.substr(0, Player.prototype.colorMaxLength) : null
@@ -440,6 +441,11 @@ RoomRepository.prototype.onJoinRoom = function(e)
             data.player.color,
             data.player.ready
         );
+
+    if (data.player.name == "player_2") {
+        player.setCustomTouch(65, 'a', 68, 'b');
+    }
+
 
     if (this.room.addPlayer(player)) {
         this.emit('player:join', {player: player});

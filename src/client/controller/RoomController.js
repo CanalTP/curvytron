@@ -79,16 +79,10 @@ function RoomController($scope, $routeParams, $location, client, repository, pro
     this.repository.start();
     gamepadListener.start();
 
-    if (!this.profile.isComplete()) {
-        this.profile.on('close', this.joinRoom);
-        if (this.profile.controller.loaded) {
-            this.profile.controller.openProfile();
-        } else {
-            this.profile.controller.on('loaded', this.profile.controller.openProfile);
-        }
-    } else {
-        this.joinRoom();
-    }
+    this.joinRoom();
+    this.addPlayer('player_1', '#00FF00');
+    this.addPlayer('player_2', '#0000FF');
+    this.launch()
 }
 
 RoomController.prototype = Object.create(AbstractController.prototype);
@@ -205,9 +199,7 @@ RoomController.prototype.goHome = function()
  */
 RoomController.prototype.launch = function()
 {
-    if (this.repository.amIMaster()) {
-        this.repository.launch();
-    }
+    this.repository.launch();
 };
 
 /**
@@ -398,6 +390,7 @@ RoomController.prototype.setTouch = function()
     var players = this.room.getLocalPlayers();
 
     for (var i = players.items.length - 1; i >= 0; i--) {
+        console.log(players.items[i]);
         players.items[i].setTouch();
     }
 };

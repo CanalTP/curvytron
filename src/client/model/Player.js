@@ -84,6 +84,24 @@ Player.prototype.setTouch = function()
 };
 
 /**
+ * Set touch
+ */
+Player.prototype.setCustomTouch = function(leftCode, leftCharacter, rightCode, rightCharacter)
+{
+    console.debug(this.controls);
+
+
+    this.controls = [
+        new PlayerControl(leftCode, leftCharacter),
+        new PlayerControl(rightCode, rightCharacter)
+    ];
+
+    for (var i = this.controls.length - 1; i >= 0; i--) {
+        this.controls[i].on('change', this.onControlChange);
+    }
+};
+
+/**
  * On change
  *
  * @param {Event} e
